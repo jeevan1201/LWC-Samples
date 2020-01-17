@@ -11,7 +11,7 @@ export default class YelpPlacesLookup extends LightningElement {
     }
 
     loadPlaces(){
-        yelpPlaces({ PlaceType: 'Restaurant', Location : '47201' })
+        yelpPlaces({ PlaceType: 'Restaurant', recordId : this.recordId })
         .then(data => {
             this.message = JSON.parse(data);
         });

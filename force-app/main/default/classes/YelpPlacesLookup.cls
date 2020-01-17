@@ -2,7 +2,15 @@ public class YelpPlacesLookup {
     private static string sAPI = 'fSJSIh1n1hDD-N08hp3oRasXy9ZQC2JNJEEFkJKOaMLjMuLfN8yxlaBk7eCrsbjzr73vBSQ9mUadBBOa_RSJ1A60NUfse9KKEHxzZvNJUZY04QaYJCkt6pXkC44gXnYx';
     
     @AuraEnabled
-    public static string LookupPlaces(String PlaceType, String Location){
+    public static string LookupPlaces(String PlaceType, String recordId){
+        Address addr = [Select Id, MailingAddress from Contact where Id = :recordId].MailingAddress;
+        String city = addr.getCity();
+        String state = addr.getState();
+        
+        String Location = city +'+'+ state;
+        Location = Location == '' ? '47201' : Location;
+        System.debug(Location);
+
         String sEndPoint = 'https://api.yelp.com/v3/businesses/search?term='+ 
                             PlaceType +'&location='+ Location +'&sort_by=rating';
         Http http = new Http();
