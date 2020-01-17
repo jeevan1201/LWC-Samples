@@ -1,0 +1,62 @@
+<template>
+    <div class="slds-m-around_small">
+        <lightning-card title="Opportunity Summary" icon-name="standard:product_consumed">
+            <lightning-record-view-form record-id={optyId} object-api-name={optyObject}>
+                <div class="slds-grid  slds-wrap">
+                    <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-5">
+                        <lightning-output-field field-name={nameField}></lightning-output-field>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-5">
+                        <lightning-output-field field-name={accountField}></lightning-output-field>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-5">
+                        <lightning-output-field field-name={closeDateField}></lightning-output-field>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-5">
+                        <lightning-output-field field-name={stageField}></lightning-output-field>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-5">
+                        <lightning-output-field field-name={amountField}></lightning-output-field>
+                    </div>
+                </div>
+            </lightning-record-view-form>
+            <div class="slds-m-around_small">
+                <template if:true={optyLineItems.data}>
+                    <table class="slds-table slds-table_cell-buffer slds-no-row-hover slds-table_bordered">
+                        <thead>
+                            <tr class="slds-line-height_reset">
+                                <th class="" scope="col">
+                                    <div class="slds-truncate" title="Product Code">Product Code</div>
+                                </th>
+                                <th class="" scope="col">
+                                    <div class="slds-truncate" title="Quantity">Quantity</div>
+                                </th>
+                                <th class="" scope="col">
+                                    <div class="slds-truncate" title="Price">Price</div>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <template for:each={optyLineItems.data} for:item="item">
+                                <tr key={item.Id} class="slds-hint-parent">
+                                    <td data-label="Product Code">
+                                        <div class="slds-truncate" title={item.ProductCode}>{item.ProductCode}</div>
+                                    </td>
+                                    <td data-label="Quantity">
+                                        <div class="slds-truncate" title={item.Quantity}>{item.Quantity}</div>
+                                    </td>
+                                    <td data-label="Price">
+                                        <div class="slds-truncate" title={item.UnitPrice}>{item.UnitPrice}</div>
+                                    </td>
+                                </tr>
+                            </template>
+                        </tbody>
+                    </table>
+                </template>
+                <template if:true={optyLineItems.error}>
+                    <c-error-panel errors={optyLineItems.error}></c-error-panel>
+                </template>
+            </div>
+        </lightning-card>
+    </div>
+</template>

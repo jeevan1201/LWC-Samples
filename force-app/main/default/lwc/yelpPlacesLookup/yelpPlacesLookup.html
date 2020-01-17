@@ -1,0 +1,9 @@
+<template>
+    <lightning-card title="Nearby Restaurants">
+      <div class="slds-p-around_medium slds-border_top customstyle">
+            <template for:each={message.businesses} for:item="business">
+                <c-place-tile key={business.id} business={business}></c-place-tile>
+            </template>
+        </div>  
+    </lightning-card>
+</template>

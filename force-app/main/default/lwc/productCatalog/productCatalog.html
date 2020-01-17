@@ -1,0 +1,29 @@
+<template>
+    <lightning-card title="Available Products">
+        <div class="slds-m-around_medium">
+            <lightning-input name="enter-search"
+                            label="Search"
+                            type="search"
+                            onchange={handleChange}
+                            ></lightning-input>
+            <template if:true={products.data}>
+                <template for:each={products.data} for:item=product>
+                    <ul class="slds-has-dividers_bottom slds-has-block-links_space" key={product.Id}>
+                        <li class="slds-item board-item productRow">
+                            <div class="slds-clearfix">
+                                <div class="slds-float_left slds-align_absolute-center">
+                                    <a onclick={navigateToDetail} data-id={product.Id} target="_blank">{product.Product2.Name}</a>
+                                    Price: 
+                                    <lightning-formatted-number value={product.UnitPrice} format-style="currency" currency-code="USD"></lightning-formatted-number>
+                                </div>
+                                <div class="slds-float_right slds-align_absolute-center">
+                                    <button class="slds-button slds-button_success" data-id={product.Id} onclick={addToCart}>Add to Cart</button>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </template>
+            </template>
+        </div>
+    </lightning-card>
+</template>

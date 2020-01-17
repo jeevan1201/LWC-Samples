@@ -1,0 +1,17 @@
+<template>
+    <div class="slds-grid slds-grid_align-spread slds-m-around_small">
+        <div class="slds-col">
+            <lightning-button name='prev' label="Back" onclick={navigate}></lightning-button>
+        </div>
+        <template if:true={laststep}>
+            <div class="slds-col">
+                <lightning-button name='next' label="Next" onclick={navigate}></lightning-button>
+            </div>
+        </template>
+        <template if:false={laststep}>
+            <div class="slds-col">
+                <lightning-button name='newOpty' label="Add Another Opportunity" onclick={newOptyEvent}></lightning-button>
+            </div>
+        </template>
+    </div>
+</template>

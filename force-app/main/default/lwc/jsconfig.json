@@ -1,0 +1,65 @@
+{
+    "compilerOptions": {
+        "experimentalDecorators": true,
+        "baseUrl": ".",
+        "paths": {
+            "c/createOptyStep": [
+                "createOptyStep/createOptyStep.js"
+            ],
+            "c/displayOptySummary": [
+                "displayOptySummary/displayOptySummary.js"
+            ],
+            "c/displayProductList": [
+                "displayProductList/displayProductList.js"
+            ],
+            "c/fileUpload": [
+                "fileUpload/fileUpload.js"
+            ],
+            "c/optyLineItemsStep": [
+                "optyLineItemsStep/optyLineItemsStep.js"
+            ],
+            "c/wizardDemo": [
+                "wizardDemo/wizardDemo.js"
+            ],
+            "c/wizardNavigation": [
+                "wizardNavigation/wizardNavigation.js"
+            ],
+            "c/ProductCatalog": [
+                "ProductCatalog/ProductCatalog.js"
+            ],
+            "c/productCatalog": [
+                "productCatalog/productCatalog.js"
+            ],
+            "c/opportunityItems": [
+                "opportunityItems/opportunityItems.js"
+            ],
+            "c/pubsub": [
+                "pubsub/pubsub.js"
+            ],
+            "c/lwcCart": [
+                "lwcCart/lwcCart.js"
+            ],
+            "c/LWC_Priority_Case": [
+                "LWC_Priority_Case/LWC_Priority_Case.js"
+            ],
+            "c/quickupdatecase": [
+                "quickupdatecase/quickupdatecase.js"
+            ],
+            "c/yelpPlacesLookup": [
+                "yelpPlacesLookup/yelpPlacesLookup.js"
+            ],
+            "c/placeTile": [
+                "placeTile/placeTile.js"
+            ]
+        }
+    },
+    "include": [
+        "**/*",
+        "../../../../.sfdx/typings/lwc/**/*.d.ts"
+    ],
+    "typeAcquisition": {
+        "include": [
+            "jest"
+        ]
+    }
+}

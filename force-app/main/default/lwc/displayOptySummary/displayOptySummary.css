@@ -1,0 +1,7 @@
+lightning-card {
+    position: relative;
+    border: solid 1px #ecebea;
+    border-radius: 4px;
+    display: block;
+    padding: 0 2px;
+}

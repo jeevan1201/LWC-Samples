@@ -1,0 +1,15 @@
+<template>
+    <div class="slds-card">
+        <div class="slds-card__body slds-card__body_inner">
+            <div class="slds-media__figure">
+                <lightning-icon icon-name="action:add_file" size="x-small" alternative-text="Upload File"></lightning-icon>
+                <span class="js-header">Upload a File</span>
+            </div>
+            <lightning-input type="file" accept=".csv" onchange={fileUploadHandle}></lightning-input>
+            <div>{fileName}</div>
+        </div>
+        <div>
+            {fileContent}
+        </div>
+    </div>
+</template>

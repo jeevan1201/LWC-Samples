@@ -1,0 +1,14 @@
+<template>
+    <div class="slds-m-around_small">
+        <lightning-input name="enter-search" label='Search Products' type="search" onchange={handleKeyChange}></lightning-input>
+    </div>
+    <div class="slds-m-around_small">
+        <template if:true={products.data}>
+            <div style="height: 315px;">
+                <lightning-datatable key-field="id" data={products.data} columns={columns} onrowaction={handleAddClick}
+                    hide-checkbox-column>
+                </lightning-datatable>
+            </div>
+        </template>
+    </div>
+</template>

@@ -1,0 +1,62 @@
+<template>
+    <lightning-card title="Case Details" icon-name="standard:product_consumed">
+        <template if:false={editCase}>
+            <lightning-button icon-name="utility:edit" variant="base" slot="actions" onclick={editcase}>
+            </lightning-button>
+            <lightning-record-view-form record-id={recordId} object-api-name="Case">
+
+                <div class="slds-m-around_medium">
+                    <div class="slds-grid slds-wrap">
+                        <div class="slds-col slds-col slds-size_6-of-12">
+                            <lightning-output-field field-name="Status" field-class="slds-border_bottom"></lightning-output-field>
+                        </div>
+                        <div class="slds-col slds-col slds-size_6-of-12">
+                            <lightning-output-field field-name="Subject" field-class="slds-border_bottom"></lightning-output-field>
+                        </div>                        
+                        <div class="slds-col slds-size_1-of-1">
+                            <lightning-output-field field-name="Description" field-class="slds-border_bottom"></lightning-output-field>
+                        </div>
+                        <div class="slds-col slds-size_1-of-1">
+                            <lightning-output-field field-name="Comments" field-class="slds-border_bottom"></lightning-output-field>
+                        </div>
+                    </div>
+                </div>
+            </lightning-record-view-form>
+        </template>
+
+        <template if:true={editCase}>
+            <lightning-record-edit-form record-id={recordId} object-api-name="Case" onsuccess={handleSuccess}>
+                <lightning-messages></lightning-messages>
+                <div class="slds-m-around_medium">
+                    <div class="slds-grid slds-wrap">
+                        <div class="slds-col slds-col slds-size_1-of-1">
+                            <lightning-output-field field-name="CaseNumber" field-class="slds-border_bottom"></lightning-output-field>
+                        </div>
+                        <div class="slds-col slds-col slds-size_1-of-1">
+                            <lightning-input-field field-name="OwnerId"></lightning-input-field>
+                        </div>
+                        <div class="slds-col slds-col slds-size_6-of-12">
+                            <lightning-input-field field-name="Status"></lightning-input-field>
+                        </div>
+                        <div class="slds-col slds-col slds-size_6-of-12">
+                            <lightning-input-field field-name="Subject"></lightning-input-field>
+                        </div>
+                        <div class="slds-col slds-size_1-of-1">
+                            <lightning-input-field field-name="Description"></lightning-input-field>
+                        </div>
+                        <div class="slds-col slds-size_1-of-1">
+                            <lightning-input-field field-name="Comments"></lightning-input-field>
+                        </div>
+                        <div class="slds-col slds-size_1-of-1">
+                            <div class="slds-align_absolute-center">
+                                <lightning-button class="slds-m-top_small" type="submit" 
+                                icon-name="utility:save" name="update" label="Update Case">
+                                </lightning-button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </lightning-record-edit-form>
+        </template>
+    </lightning-card>
+</template>

@@ -1,0 +1,32 @@
+<template>
+    <div>
+        <div class="slds-card">
+            <div class="slds-card__body slds-card__body_inner">
+                <template if:false={createClaim}>
+                    <lightning-button variant="brand" label="Create" title="Brand action" onclick={quickCreate}
+                        class="slds-m-left_x-small"></lightning-button>
+                </template>
+                <template if:true={createClaim}>
+                    <lightning-progress-indicator current-step={currentStep} type="path" variant="base">
+                        <lightning-progress-step label="Opportunity Details" value="1" onstepfocus={selectStep}></lightning-progress-step>
+                        <lightning-progress-step label="Opportunity Products" value="2" onstepfocus={selectStep}></lightning-progress-step>
+                        <lightning-progress-step label="Summary" value="3" onstepfocus={selectStep}></lightning-progress-step>
+                    </lightning-progress-indicator>
+                    <div>
+                        <template if:true={isCurrentState1}>
+                            <c-create-opty-step opty-id={optyId} onoptycreated={moveNextStep}></c-create-opty-step>
+                        </template>
+                        <template if:true={isCurrentState2}>
+                            <c-opty-line-items-step opty-id={optyId}></c-opty-line-items-step>
+                            <c-wizard-navigation laststep=true onnavigate={handleNavigation}></c-wizard-navigation>
+                        </template>
+                        <template if:true={isCurrentState3}>
+                            <c-display-opty-summary opty-id={optyId}></c-display-opty-summary>
+                            <c-wizard-navigation onnavigate={handleNavigation} onnewopty={createNewOpty}></c-wizard-navigation>
+                        </template>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </div>
+</template>

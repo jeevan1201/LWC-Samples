@@ -1,0 +1,15 @@
+<template>
+    <div class="slds-m-bottom_xx-small slds-border_bottom">
+        <lightning-tile label={business.name} type="media">
+            <img slot="media" style="height: 40px;width: 40px;margin-top: 8px;border-radius: 25px;"
+                src={business.image_url}></img>
+            <p class="slds-truncate" title={business.name}>
+                <span class="star">{business.rating}</span>&nbsp;
+                {business.location.address1},
+                {business.location.city},
+                {business.location.state}
+                {business.display_phone}</p>
+            <a href={business.url} target="_blank">Website</a>
+        </lightning-tile>
+    </div>
+</template>
